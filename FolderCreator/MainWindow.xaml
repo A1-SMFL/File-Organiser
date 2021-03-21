@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Folder Creator" 
          ResizeMode="NoResize"
-        Height="276.342" Width="427.013" Background="#FFDE5E5E" Foreground="#FF704E4E" BorderBrush="Red">
+        Height="276.342" Width="427.013" Background="#FFDE5E5E" Foreground="#FF704E4E" BorderBrush="Red" Icon="rect12.png">
     <Grid>
         <Border BorderThickness="2" BorderBrush="Black" Background="#FFA08080">
             <TextBlock Name="folder_name" Text="" TextAlignment="Right" Margin="24,109,111,95" Background="#FFECD7D7"/>
