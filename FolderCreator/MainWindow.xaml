@@ -1,0 +1,23 @@
+﻿<Window x:Class="FolderCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FolderCreator"
+        mc:Ignorable="d"
+        Title="Folder Creator" 
+         ResizeMode="NoResize"
+        Height="276.342" Width="427.013" Background="#FFDE5E5E" Foreground="#FF704E4E" BorderBrush="Red">
+    <Grid>
+        <Border BorderThickness="2" BorderBrush="Black" Background="#FFA08080">
+            <TextBlock Name="folder_name" Text="" TextAlignment="Right" Margin="24,109,111,95" Background="#FFECD7D7"/>
+        </Border>
+        <Button  Name="select_folder" Margin="313,106,30,0" VerticalAlignment="Top" Height="47" Click="select_folder_Click" Background="#FF321F1F">
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center"  Text="Select a Folder" TextWrapping="Wrap" Width="58" FontFamily="Franklin Gothic Medium" Foreground="#FFECD7D7"></TextBlock>
+        </Button>
+        <TextBlock TextWrapping="Wrap" Name="Title" Text="Select a Folder to Organise" TextAlignment="Center" Margin="70,24,62,145" FontFamily="Franklin Gothic Medium" FontSize="28" Foreground="#FFECD7D7"/>
+        <Button  x:Name="organise_folder" Margin="133,171,123,31" Click="organise_folder_Click" Background="#FF321F1F">
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Width="153" FontFamily="Franklin Gothic Medium" Text="Organise" Foreground="#FFECD7D7"/>
+        </Button>
+    </Grid>
+</Window>
