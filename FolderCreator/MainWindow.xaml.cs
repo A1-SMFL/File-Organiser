@@ -48,7 +48,7 @@ namespace FolderCreator
                     System.Windows.MessageBox.Show("Organisation Complete!");
                 }catch(Exception ex)
                 {
-                    System.Windows.MessageBox.Show("Organisation Failed!", ex.Message);
+                    System.Windows.MessageBox.Show( ex.ToString(), "Organisation Failed!");
                 }
 
             }
@@ -128,8 +128,14 @@ namespace FolderCreator
                         }
                         else
                         {
-                            Console.WriteLine(PathToMove + "\\" + Path.GetFileNameWithoutExtension(path));
-                            Directory.Move(path, PathToMove + "\\" + Path.GetFileNameWithoutExtension(path));
+                            try
+                            {
+                                Directory.Move(path, PathToMove + "\\" + Path.GetFileNameWithoutExtension(path));
+                            }
+                            catch (Exception ex){
+                                System.Windows.MessageBox.Show(path, PathToMove + "\\" + Path.GetFileNameWithoutExtension(path));
+                            }
+                           
                         }
 
                         
@@ -137,15 +143,36 @@ namespace FolderCreator
                     }
                     else
                     {
-                        Console.WriteLine(folder_name.Text +
-                            "/" + lastWrite.Year.ToString() +
-                            "/" + lastWrite.Month.ToString() + " - " + lastWrite.ToString("MMMM") +
-                            "/" + Path.GetFileName(path));
-                        File.Move(path, folder_name.Text +
-                            "/" + lastWrite.Year.ToString() +
-                            "/" + lastWrite.Month.ToString() + " - " + lastWrite.ToString("MMMM") +
-                            "/" + Path.GetFileName(path));
-                    }
+                        int count = 1;
+                        while (true)
+                        {
+                            
+                            try
+                            { 
+                                if(count == 1) {
+                                    File.Move(path, folder_name.Text +
+                                        "/" + lastWrite.Year.ToString() +
+                                        "/" + lastWrite.Month.ToString() + " - " + lastWrite.ToString("MMMM") +
+                                        "/" + Path.GetFileName(path));
+                                }
+                                else
+                                {
+                                    File.Move(path, folder_name.Text +
+                                        "/" + lastWrite.Year.ToString() +
+                                        "/" + lastWrite.Month.ToString() + " - " + lastWrite.ToString("MMMM") +
+                                        "/"+ count.ToString() + "_" + Path.GetFileName(path));
+                                }
+
+
+                                break;
+                            }
+                            catch 
+                            {
+                                count++;
+                            }
+                        }
+
+                }
 
                     
                 }
